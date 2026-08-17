@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout — Chain &amp; Bracelet</title>
+  <meta name="description" content="Complete your Chain &amp; Bracelet order.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    if (sessionStorage.getItem('cbAnimationsShown')) {
+      document.documentElement.classList.add('no-reveal-animation');
+    }
+  </script>
+</head>
+<body>
+
+<!-- reusable brand mark -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="cb-mark" viewBox="0 0 48 48">
+    <g fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round">
+      <path d="M24 3 34 24 24 45 14 24Z"/>
+      <path d="M3 24 24 14 45 24 24 34Z"/>
+      <circle cx="24" cy="24" r="5.5"/>
+      <circle cx="24" cy="24" r="1.6" fill="currentColor" stroke="none"/>
+      <path d="M24 3v42M3 24h42" stroke-width=".4" opacity=".5"/>
+    </g>
+  </symbol>
+</svg>
+
+<!-- ===================== header ===================== -->
+<header class="header">
+  <div class="shell">
+    <div class="header__top">
+      <a class="header__about" href="about.html">About C&amp;B</a>
+      <a class="header__mark" href="index.html" aria-label="Chain &amp; Bracelet — home">
+        <svg><use href="#cb-mark"></use></svg>
+      </a>
+    </div>
+
+    <div class="header__bar">
+      <button class="burger" data-burger aria-expanded="false" aria-controls="mobileNav" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav nav--left">
+        <a href="shop.html?c=chains" data-nav="chains">Chains</a>
+        <a href="shop.html?c=bracelets" data-nav="bracelets">Bracelets</a>
+      </nav>
+      <a class="wordmark" href="index.html">Chain &amp; Bracelet</a>
+      <nav class="nav nav--right">
+        <a href="shop.html?c=rings" data-nav="rings">Rings</a>
+        <a href="shop.html?c=earrings" data-nav="earrings">Earrings</a>
+      </nav>
+      <span class="spacer" aria-hidden="true"></span>
+    </div>
+
+    <div class="header__tools">
+      <button class="icon-btn" data-open="search" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/>
+        </svg>
+      </button>
+      <button class="icon-btn" data-open="account" aria-label="Account">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <circle cx="12" cy="8.5" r="3.5"/>
+          <path d="M4.5 20c1.6-4 4.4-6 7.5-6s5.9 2 7.5 6"/>
+        </svg>
+      </button>
+      <a class="icon-btn" href="saved.html" aria-label="Wishlist">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M12 20s-7.5-4.7-7.5-9.6A4.4 4.4 0 0 1 12 7.5a4.4 4.4 0 0 1 7.5 2.9C19.5 15.3 12 20 12 20Z"/>
+        </svg>
+        <span class="icon-btn__count" data-wish-badge>0</span>
+      </a>
+      <button class="icon-btn" data-open="cart" aria-label="Shopping bag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>
+        </svg>
+        <span class="icon-btn__count" data-cart-badge>0</span>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="shop.html">Shop All</a>
+    <a href="shop.html?c=chains">Chains</a>
+    <a href="shop.html?c=bracelets">Bracelets</a>
+    <a href="shop.html?c=rings">Rings</a>
+    <a href="shop.html?c=earrings">Earrings</a>
+    <a href="about.html">About C&amp;B</a>
+  </nav>
+</header>
+
+<main class="checkout">
+  <div class="shell">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="saved.html?tab=bag">Bag</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Checkout</span>
+    </nav>
+
+    <div class="checkout__wrapper">
+      <!-- Left: Checkout Form -->
+      <div class="checkout__form-section">
+        <h1 class="display">Checkout</h1>
+
+        <!-- Step Indicator -->
+        <div class="checkout__steps">
+          <div class="checkout__step is-active" data-step="1">
+            <span class="checkout__step-num">1</span>
+            <span class="checkout__step-label">Shipping</span>
+          </div>
+          <div class="checkout__step" data-step="2">
+            <span class="checkout__step-num">2</span>
+            <span class="checkout__step-label">Payment</span>
+          </div>
+        </div>
+
+        <!-- Step 1: Shipping -->
+        <form class="checkout__step-content is-active" data-content="1">
+          <fieldset>
+            <legend class="checkout__heading">Shipping Information</legend>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required>
+              <span class="form-error" data-error="email"></span>
+            </div>
+
+            <div class="form-group form-group--half">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" name="firstName" placeholder="First name" required>
+              <span class="form-error" data-error="firstName"></span>
+            </div>
+
+            <div class="form-group form-group--half">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" placeholder="Last name" required>
+              <span class="form-error" data-error="lastName"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="address">Street Address</label>
+              <input type="text" id="address" name="address" placeholder="123 Main Street" required>
+              <span class="form-error" data-error="address"></span>
+            </div>
+
+            <div class="form-group form-group--half">
+              <label for="city">City</label>
+              <input type="text" id="city" name="city" placeholder="City" required>
+              <span class="form-error" data-error="city"></span>
+            </div>
+
+            <div class="form-group form-group--half">
+              <label for="state">State / Province</label>
+              <input type="text" id="state" name="state" placeholder="State" required>
+              <span class="form-error" data-error="state"></span>
+            </div>
+
+            <div class="form-group form-group--half">
+              <label for="zip">ZIP / Postal Code</label>
+              <input type="text" id="zip" name="zip" placeholder="ZIP code" required>
+              <span class="form-error" data-error="zip"></span>
+            </div>
+
+            <div class="form-group form-group--half">
+              <label for="country">Country</label>
+              <input type="text" id="country" name="country" placeholder="Country" required>
+              <span class="form-error" data-error="country"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567" required>
+              <span class="form-error" data-error="phone"></span>
+            </div>
+
+            <div class="form-group form-group--full">
+              <label class="checkbox">
+                <input type="checkbox" name="newsletter" value="yes">
+                <span>Subscribe to our newsletter</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <button type="button" class="btn btn--solid checkout__next" data-next="2">
+            Continue to Payment
+          </button>
+        </form>
+
+        <!-- Step 2: Payment -->
+        <form class="checkout__step-content" data-content="2">
+          <fieldset>
+            <legend class="checkout__heading">Payment Method</legend>
+
+            <div class="payment-methods">
+              <label class="payment-option">
+                <input type="radio" name="paymentMethod" value="card" checked>
+                <span class="payment-option__label">
+                  <svg class="payment-option__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="2" y="5" width="20" height="14" rx="2"/>
+                    <path d="M2 10h20"/>
+                  </svg>
+                  Credit / Debit Card
+                </span>
+              </label>
+
+              <label class="payment-option">
+                <input type="radio" name="paymentMethod" value="paypal">
+                <span class="payment-option__label">
+                  <svg class="payment-option__icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 3h8c2.76 0 5 2.24 5 5v8c0 2.76-2.24 5-5 5H8c-2.76 0-5-2.24-5-5V8c0-2.76 2.24-5 5-5z"/>
+                  </svg>
+                  PayPal
+                </span>
+              </label>
+
+              <label class="payment-option">
+                <input type="radio" name="paymentMethod" value="applepay">
+                <span class="payment-option__label">
+                  <svg class="payment-option__icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 3h8c2.76 0 5 2.24 5 5v8c0 2.76-2.24 5-5 5H8c-2.76 0-5-2.24-5-5V8c0-2.76 2.24-5 5-5z"/>
+                  </svg>
+                  Apple Pay
+                </span>
+              </label>
+            </div>
+
+            <!-- Card Payment Form -->
+            <div class="payment-details" data-payment-form="card">
+              <div class="form-group">
+                <label for="cardholderName">Cardholder Name</label>
+                <input type="text" id="cardholderName" name="cardholderName" placeholder="Name on card" required>
+                <span class="form-error" data-error="cardholderName"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="cardNumber">Card Number</label>
+                <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                <span class="form-error" data-error="cardNumber"></span>
+              </div>
+
+              <div class="form-group form-group--half">
+                <label for="expiry">Expiry Date</label>
+                <input type="text" id="expiry" name="expiry" placeholder="MM/YY" maxlength="5" required>
+                <span class="form-error" data-error="expiry"></span>
+              </div>
+
+              <div class="form-group form-group--half">
+                <label for="cvc">CVC</label>
+                <input type="text" id="cvc" name="cvc" placeholder="123" maxlength="4" required>
+                <span class="form-error" data-error="cvc"></span>
+              </div>
+
+              <label class="checkbox">
+                <input type="checkbox" name="saveCard" value="yes">
+                <span>Save this card for future orders</span>
+              </label>
+            </div>
+
+            <!-- PayPal / Apple Pay Notice -->
+            <div class="payment-details" data-payment-form="paypal" style="display:none;">
+              <p class="note">You will be redirected to PayPal to complete your payment securely.</p>
+            </div>
+
+            <div class="payment-details" data-payment-form="applepay" style="display:none;">
+              <p class="note">You will be redirected to Apple Pay to complete your payment securely.</p>
+            </div>
+
+            <div class="form-group form-group--full">
+              <label class="checkbox">
+                <input type="checkbox" name="terms" required>
+                <span>I agree to the <a href="#" target="_blank">Terms &amp; Conditions</a></span>
+              </label>
+              <span class="form-error" data-error="terms"></span>
+            </div>
+          </fieldset>
+
+          <div class="checkout__actions">
+            <button type="button" class="btn btn--outline checkout__back" data-back="1">
+              Back to Shipping
+            </button>
+            <button type="submit" class="btn btn--solid checkout__submit">
+              Place Order
+            </button>
+          </div>
+        </form>
+
+        <div class="checkout__confirmation" data-content="confirmation" style="display:none;">
+          <div class="checkout__success">
+            <svg class="checkout__checkmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 6L9 17l-5-5"/>
+            </svg>
+            <h2>Order Confirmed!</h2>
+            <p>Thank you for your order. A confirmation email has been sent to <strong data-order-email></strong>.</p>
+            <p class="note">Your order will be made to order and shipped within 8-10 working days.</p>
+            <a class="btn btn--ink" href="index.html">Continue Shopping</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Order Summary -->
+      <aside class="checkout__summary">
+        <h2>Order Summary</h2>
+
+        <div class="checkout__items" data-order-items>
+          <!-- Items populated by JavaScript -->
+        </div>
+
+        <div class="checkout__totals">
+          <div class="checkout__total-row">
+            <span>Subtotal</span>
+            <strong data-order-subtotal>$0</strong>
+          </div>
+          <div class="checkout__total-row">
+            <span>Shipping</span>
+            <span>Complimentary</span>
+          </div>
+          <div class="checkout__total-row">
+            <span>Engraving</span>
+            <span>Included</span>
+          </div>
+          <div class="checkout__total-row checkout__total-row--final">
+            <span>Total</span>
+            <strong data-order-total>$0</strong>
+          </div>
+        </div>
+
+        <p class="checkout__note">Made to order in 8–10 working days. Thirty day returns.</p>
+        <a class="checkout__edit" href="saved.html?tab=bag">Edit bag</a>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<!-- ===================== footer ===================== -->
+<footer class="footer reveal reveal--seq">
+  <div class="shell footer__grid">
+    <div>
+      <h3>Follow Us</h3>
+      <div class="footer__social">
+        <a href="#">Instagram</a>
+        <a href="#">Pinterest</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+
+    <div class="footer__brand">
+      <svg aria-hidden="true"><use href="#cb-mark"></use></svg>
+      <div class="wordmark">Chain &amp; Bracelet</div>
+      <small>&copy; 2026 Chain &amp; Bracelet. All rights reserved.</small>
+    </div>
+
+    <div class="subscribe">
+      <h3>Subscribe to Our Newsletter</h3>
+      <form data-subscribe>
+        <input type="email" name="email" placeholder="Enter your email" required aria-label="Email address">
+        <button type="submit">Send</button>
+      </form>
+      <p class="note">New arrivals and private previews. No more than twice a month.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== overlays ===================== -->
+<div class="scrim" data-scrim></div>
+
+<aside class="drawer" data-drawer="cart" aria-hidden="true" aria-label="Shopping bag">
+  <div class="drawer__head">
+    <h2>Shopping Bag</h2>
+    <button class="drawer__close" data-close aria-label="Close bag">&times;</button>
+  </div>
+  <div class="drawer__body" data-cart-body>
+    <p class="drawer__empty">Your bag is empty.</p>
+  </div>
+  <div class="drawer__foot">
+    <div class="drawer__total"><span>Subtotal</span><strong data-cart-total>$0</strong></div>
+    <a class="btn btn--ink" href="saved.html?tab=bag">View Bag &amp; Checkout</a>
+  </div>
+</aside>
+
+<aside class="drawer" data-drawer="account" aria-hidden="true" aria-label="Account">
+  <div class="drawer__head">
+    <h2>Account</h2>
+    <button class="drawer__close" data-close aria-label="Close account">&times;</button>
+  </div>
+  <div class="drawer__body account__body">
+    <div class="account__tabs" role="tablist">
+      <button type="button" class="account__tab is-on" data-account-tab="signin" role="tab" aria-selected="true">Sign In</button>
+      <button type="button" class="account__tab" data-account-tab="create" role="tab" aria-selected="false">Create Account</button>
+    </div>
+
+    <form class="account__form" data-account-form="signin">
+      <div class="form-group">
+        <label for="signinEmail">Email Address</label>
+        <input type="email" id="signinEmail" name="email" placeholder="you@example.com" required>
+      </div>
+      <div class="form-group">
+        <label for="signinPassword">Password</label>
+        <input type="password" id="signinPassword" name="password" placeholder="••••••••" required>
+      </div>
+      <button class="btn btn--ink account__submit" type="submit">Sign In</button>
+    </form>
+
+    <form class="account__form" data-account-form="create" hidden>
+      <div class="form-group">
+        <label for="createName">Full Name</label>
+        <input type="text" id="createName" name="name" placeholder="Your name" required>
+      </div>
+      <div class="form-group">
+        <label for="createEmail">Email Address</label>
+        <input type="email" id="createEmail" name="email" placeholder="you@example.com" required>
+      </div>
+      <div class="form-group">
+        <label for="createPassword">Password</label>
+        <input type="password" id="createPassword" name="password" placeholder="Create a password" required>
+      </div>
+      <button class="btn btn--ink account__submit" type="submit">Create Account</button>
+    </form>
+
+    <div class="account__divider"><span>or</span></div>
+
+    <button type="button" class="account__guest" data-guest-continue>Continue as Guest</button>
+
+    <p class="account__note">This is a prototype — accounts aren’t connected to anything yet. Signing in, creating an account, or continuing as guest all just close this panel.</p>
+  </div>
+</aside>
+
+<div class="search" data-search aria-hidden="true" role="dialog" aria-modal="true" aria-label="Search">
+  <button class="search__close" type="button" data-close aria-label="Close search">
+    <span>Close</span>
+    <span class="search__close-x" aria-hidden="true">&times;</span>
+  </button>
+  <div class="search__panel">
+    <form class="search__form" data-search-form role="search">
+      <svg class="search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/>
+      </svg>
+      <input type="search" name="q" data-search-input autocomplete="off" placeholder="Search chains, bracelets, rings&#8230;" aria-label="Search the collection">
+      <button class="search__clear" type="button" data-search-clear hidden aria-label="Clear search">&times;</button>
+    </form>
+    <div class="search__body">
+      <div data-search-suggest></div>
+      <div data-search-results hidden></div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/catalog.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/checkout.js"></script>
+
+</body>
+</html>

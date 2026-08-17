@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Our Story — Chain &amp; Bracelet</title>
+  <meta name="description" content="Solid gold chains, bracelets and fine jewellery, made to order by a small studio — no plating, no filler metals.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    /* The intro sequence plays once per session — see the reveal block in
+       main.js. Read before the first paint so a return visit never flashes
+       the un-animated state. */
+    try {
+      if (sessionStorage.getItem('cb.seenIntro')) {
+        document.documentElement.classList.add('no-reveal-animation');
+      }
+    } catch (e) { }
+  </script>
+</head>
+<body>
+
+<!-- reusable brand mark -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="cb-mark" viewBox="0 0 48 48">
+    <g fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round">
+      <path d="M24 3 34 24 24 45 14 24Z"/>
+      <path d="M3 24 24 14 45 24 24 34Z"/>
+      <circle cx="24" cy="24" r="5.5"/>
+      <circle cx="24" cy="24" r="1.6" fill="currentColor" stroke="none"/>
+      <path d="M24 3v42M3 24h42" stroke-width=".4" opacity=".5"/>
+    </g>
+  </symbol>
+</svg>
+
+<!-- ===================== header ===================== -->
+<header class="header">
+  <div class="shell">
+    <div class="header__top">
+      <a class="header__about" href="about.html">About C&amp;B</a>
+      <a class="header__mark" href="index.html" aria-label="Chain &amp; Bracelet — home">
+        <svg><use href="#cb-mark"></use></svg>
+      </a>
+    </div>
+
+    <div class="header__bar">
+      <button class="burger" data-burger aria-expanded="false" aria-controls="mobileNav" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav nav--left">
+        <a href="shop.html?c=chains" data-nav="chains">Chains</a>
+        <a href="shop.html?c=bracelets" data-nav="bracelets">Bracelets</a>
+      </nav>
+      <a class="wordmark" href="index.html">Chain &amp; Bracelet</a>
+      <nav class="nav nav--right">
+        <a href="shop.html?c=rings" data-nav="rings">Rings</a>
+        <a href="shop.html?c=earrings" data-nav="earrings">Earrings</a>
+      </nav>
+      <span class="spacer" aria-hidden="true"></span>
+    </div>
+
+      <div class="header__tools">
+        <button class="icon-btn" data-open="search" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/>
+          </svg>
+        </button>
+        <button class="icon-btn" data-open="account" aria-label="Account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="12" cy="8.5" r="3.5"/>
+            <path d="M4.5 20c1.6-4 4.4-6 7.5-6s5.9 2 7.5 6"/>
+          </svg>
+        </button>
+        <a class="icon-btn" href="saved.html" aria-label="Wishlist">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M12 20s-7.5-4.7-7.5-9.6A4.4 4.4 0 0 1 12 7.5a4.4 4.4 0 0 1 7.5 2.9C19.5 15.3 12 20 12 20Z"/>
+          </svg>
+          <span class="icon-btn__count" data-wish-badge>0</span>
+        </a>
+        <button class="icon-btn" data-open="cart" aria-label="Shopping bag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>
+          </svg>
+          <span class="icon-btn__count" data-cart-badge>0</span>
+        </button>
+      </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="shop.html">Shop All</a>
+    <a href="shop.html?c=chains">Chains</a>
+    <a href="shop.html?c=bracelets">Bracelets</a>
+    <a href="shop.html?c=rings">Rings</a>
+    <a href="shop.html?c=earrings">Earrings</a>
+    <a href="about.html">About C&amp;B</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ===================== page banner ===================== -->
+  <section class="page-hero">
+    <figure class="page-hero__media">
+      <div class="about-duo">
+        <img src="assets/img/editorial/5.jpg" alt="Model wearing a diamond pendant necklace, stacked rings and a tennis bracelet">
+        <img src="assets/img/editorial/6.jpg" alt="Model wearing a diamond pendant necklace and a tennis bracelet, hand in hair">
+      </div>
+    </figure>
+
+    <div class="page-hero__panel">
+      <p class="eyebrow">Set by hand, in solid gold</p>
+      <h1 class="page-hero__title display">Our Story</h1>
+      <span class="page-hero__rule" aria-hidden="true"></span>
+      <p class="page-hero__intro">
+        Chain &amp; Bracelet started on one bench with one idea: jewellery you put on once
+        and stop thinking about. Everything we make still passes through the same hands
+        it always has.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== our story ===================== -->
+  <section class="split split--wide-copy reveal reveal--seq">
+    <div class="split__copy">
+      <h2 class="display">From a Single<br>Bench</h2>
+      <p class="body-copy">
+        We started small — a single bench, a handful of tools, and a conviction that fine
+        jewellery didn't need to mean precious-once-a-year. Every chain and bracelet we set
+        is still made the same way it was on day one: to order, in solid gold, by the same
+        small team that answers your emails.
+      </p>
+      <p class="body-copy">
+        No plating, no filler metals, no stones we can't trace. If a piece isn't good enough
+        to wear every day for years, we don't ship it.
+      </p>
+      <a class="btn btn--ink" href="shop.html">Shop the Collection</a>
+    </div>
+    <div class="split__media">
+      <img src="assets/img/editorial/hero-old2.png"
+        alt="Portrait of a model wearing a diamond tennis necklace" width="1024" height="1440">
+    </div>
+  </section>
+
+  <!-- ===================== craftsmanship ===================== -->
+  <div class="band" id="process">
+    <h1 class="display">How It's Made</h1>
+  </div>
+
+  <section class="process reveal reveal--seq">
+    <div class="shell process__grid">
+      <div class="process__step">
+        <span class="process__num">01</span>
+        <h3>Sketch</h3>
+        <p>Every piece starts as a hand drawing, sized and weighted to the request before any metal is touched.</p>
+      </div>
+      <div class="process__step">
+        <span class="process__num">02</span>
+        <h3>Cast</h3>
+        <p>Cast in-house in solid gold — 10K through 18K, never plated — straight from the sketch.</p>
+      </div>
+      <div class="process__step">
+        <span class="process__num">03</span>
+        <h3>Set</h3>
+        <p>Stones are set by hand, one at a time under magnification, and checked twice before they leave the bench.</p>
+      </div>
+      <div class="process__step">
+        <span class="process__num">04</span>
+        <h3>Polish</h3>
+        <p>Polished, inspected and boxed in our studio the same week — nothing sits in a warehouse first.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== values ===================== -->
+  <section class="assurance">
+    <div class="shell assurance__grid">
+      <div>
+        <h3>Solid Gold, Always</h3>
+        <p>10K through 18K, never plated. What it's stamped is what's under the finish, for the life of the piece.</p>
+      </div>
+      <div>
+        <h3>Responsibly Sourced</h3>
+        <p>Lab-grown and natural stones, each graded for cut before colour, with a certificate you can trace back.</p>
+      </div>
+      <div>
+        <h3>Made to Order</h3>
+        <p>Nothing sits in a warehouse. Every piece is set in our studio the week you order it, by hand.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== faq ===================== -->
+  <div class="band" id="faq">
+    <h1 class="display">Questions</h1>
+  </div>
+
+  <section class="faq shell reveal reveal--seq">
+    <details class="faq__item">
+      <summary>How do I find my ring size?</summary>
+      <p>Use our free printable sizer, or measure a ring you already own — the full guide is linked from every ring's product page.</p>
+    </details>
+    <details class="faq__item">
+      <summary>Do you offer engraving?</summary>
+      <p>Yes — hand engraving is included at no extra charge on any chain, bracelet or band.</p>
+    </details>
+    <details class="faq__item">
+      <summary>How long does an order take?</summary>
+      <p>Everything is made to order in our studio, typically eight to ten working days, then shipped insured.</p>
+    </details>
+    <details class="faq__item">
+      <summary>What's your return policy?</summary>
+      <p>Thirty days, insured both ways. Resizing within one size is free for the first year.</p>
+    </details>
+    <details class="faq__item">
+      <summary>Is the gold solid or plated?</summary>
+      <p>Always solid — 10K through 18K — never plated. What it's stamped is what's under the finish.</p>
+    </details>
+    <details class="faq__item">
+      <summary>Can I layer multiple pieces?</summary>
+      <p>Yes, most of what we make is designed to be layered. See the length guide on any chain or bracelet for spacing tips.</p>
+    </details>
+  </section>
+
+  <!-- ===================== closing cta ===================== -->
+  <section class="shell about-cta reveal reveal--seq">
+    <h2 class="display">Still Have Questions?</h2>
+    <p class="body-copy">
+      Ring sizing, chain length, engraving, or just deciding between two pieces —
+      we're a small team and we read every message ourselves.
+    </p>
+    <div class="about-cta__actions">
+      <a class="btn btn--ink" href="mailto:hello@chainandbracelet.com">Email Us</a>
+      <a class="btn btn--ink" href="shop.html">Shop the Collection</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== footer ===================== -->
+<footer class="footer reveal reveal--seq">
+  <div class="shell footer__grid">
+    <div>
+      <h3>Follow Us</h3>
+      <div class="footer__social">
+        <a href="#">Instagram</a>
+        <a href="#">Pinterest</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+
+    <div class="footer__brand">
+      <svg aria-hidden="true"><use href="#cb-mark"></use></svg>
+      <div class="wordmark">Chain &amp; Bracelet</div>
+      <small>&copy; 2026 Chain &amp; Bracelet. All rights reserved.</small>
+    </div>
+
+    <div class="subscribe">
+      <h3>Subscribe to Our Newsletter</h3>
+      <form data-subscribe>
+        <input type="email" name="email" placeholder="Enter your email" required aria-label="Email address">
+        <button type="submit">Send</button>
+      </form>
+      <p class="note">New arrivals and private previews. No more than twice a month.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== overlays ===================== -->
+<div class="scrim" data-scrim></div>
+
+<aside class="drawer" data-drawer="cart" aria-hidden="true" aria-label="Shopping bag">
+  <div class="drawer__head">
+    <h2>Shopping Bag</h2>
+    <button class="drawer__close" data-close aria-label="Close bag">&times;</button>
+  </div>
+  <div class="drawer__body" data-cart-body>
+    <p class="drawer__empty">Your bag is empty.</p>
+  </div>
+  <div class="drawer__foot">
+    <div class="drawer__total"><span>Subtotal</span><strong data-cart-total>$0</strong></div>
+    <a class="btn btn--ink" href="saved.html?tab=bag">View Bag &amp; Checkout</a>
+  </div>
+</aside>
+
+<aside class="drawer" data-drawer="account" aria-hidden="true" aria-label="Account">
+  <div class="drawer__head">
+    <h2>Account</h2>
+    <button class="drawer__close" data-close aria-label="Close account">&times;</button>
+  </div>
+  <div class="drawer__body account__body">
+    <div class="account__tabs" role="tablist">
+      <button type="button" class="account__tab is-on" data-account-tab="signin" role="tab" aria-selected="true">Sign In</button>
+      <button type="button" class="account__tab" data-account-tab="create" role="tab" aria-selected="false">Create Account</button>
+    </div>
+
+    <form class="account__form" data-account-form="signin">
+      <div class="form-group">
+        <label for="signinEmail">Email Address</label>
+        <input type="email" id="signinEmail" name="email" placeholder="you@example.com" required>
+      </div>
+      <div class="form-group">
+        <label for="signinPassword">Password</label>
+        <input type="password" id="signinPassword" name="password" placeholder="••••••••" required>
+      </div>
+      <button class="btn btn--ink account__submit" type="submit">Sign In</button>
+    </form>
+
+    <form class="account__form" data-account-form="create" hidden>
+      <div class="form-group">
+        <label for="createName">Full Name</label>
+        <input type="text" id="createName" name="name" placeholder="Your name" required>
+      </div>
+      <div class="form-group">
+        <label for="createEmail">Email Address</label>
+        <input type="email" id="createEmail" name="email" placeholder="you@example.com" required>
+      </div>
+      <div class="form-group">
+        <label for="createPassword">Password</label>
+        <input type="password" id="createPassword" name="password" placeholder="Create a password" required>
+      </div>
+      <button class="btn btn--ink account__submit" type="submit">Create Account</button>
+    </form>
+
+    <div class="account__divider"><span>or</span></div>
+
+    <button type="button" class="account__guest" data-guest-continue>Continue as Guest</button>
+
+    <p class="account__note">This is a prototype — accounts aren’t connected to anything yet. Signing in, creating an account, or continuing as guest all just close this panel.</p>
+  </div>
+</aside>
+
+<div class="search" data-search aria-hidden="true" role="dialog" aria-modal="true" aria-label="Search">
+  <button class="search__close" type="button" data-close aria-label="Close search">
+    <span>Close</span>
+    <span class="search__close-x" aria-hidden="true">&times;</span>
+  </button>
+
+  <div class="search__panel">
+
+    <form class="search__form" data-search-form role="search">
+        <svg class="search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/>
+        </svg>
+        <input type="search" name="q" data-search-input autocomplete="off"
+               placeholder="Search chains, bracelets, rings&#8230;" aria-label="Search the collection">
+        <button class="search__clear" type="button" data-search-clear hidden aria-label="Clear search">&times;</button>
+      </form>
+
+    <div class="search__body">
+      <div data-search-suggest>
+        <div data-recent hidden>
+          <p class="search__label">
+            <span>Recent</span>
+            <button type="button" class="search__wipe" data-recent-clear>Clear</button>
+          </p>
+          <div class="search__chips" data-recent-list></div>
+        </div>
+
+        <p class="search__label"><span>Popular searches</span></p>
+        <div class="search__chips">
+          <button type="button" class="search__chip" data-term="tennis bracelet">Tennis bracelet</button>
+          <button type="button" class="search__chip" data-term="belcher chain">Belcher chain</button>
+          <button type="button" class="search__chip" data-term="eternity">Eternity band</button>
+          <button type="button" class="search__chip" data-term="yellow gold">Yellow gold</button>
+          <button type="button" class="search__chip" data-term="studs">Studs</button>
+        </div>
+
+        <p class="search__label"><span>Browse</span></p>
+        <div class="search__browse">
+          <a href="shop.html?c=chains">
+            <span class="search__browse-img">
+              <img src="assets/img/products/necklace-chain.png" alt="" loading="lazy">
+            </span>
+            <span class="search__browse-name">Chains</span>
+          </a>
+          <a href="shop.html?c=bracelets">
+            <span class="search__browse-img">
+              <img src="assets/img/products/bracelet-tennis.png" alt="" loading="lazy">
+            </span>
+            <span class="search__browse-name">Bracelets</span>
+          </a>
+          <a href="shop.html?c=rings">
+            <span class="search__browse-img">
+              <img src="assets/img/products/ring-eternity.png" alt="" loading="lazy">
+            </span>
+            <span class="search__browse-name">Rings</span>
+          </a>
+          <a href="shop.html?c=earrings">
+            <span class="search__browse-img">
+              <img src="assets/img/products/earring-category.png" alt="" loading="lazy">
+            </span>
+            <span class="search__browse-name">Earrings</span>
+          </a>
+        </div>
+
+        <p class="search__label"><span>Most searched pieces</span></p>
+        <div class="search__rail" data-search-rail></div>
+      </div>
+
+      <div data-search-results hidden>
+        <p class="search__label">
+          <span data-search-count aria-live="polite"></span>
+        </p>
+        <div class="search__cats" data-search-cats hidden></div>
+        <div class="search__list" data-search-list></div>
+        <a class="search__all" data-search-all href="shop.html">View all results<span aria-hidden="true">&#8594;</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" data-toast role="status" aria-live="polite"></div>
+
+<script src="assets/js/catalog.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

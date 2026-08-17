@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Product — Chain &amp; Bracelet</title>
+  <meta name="description" content="Solid gold chains and bracelets, set by hand and made to order.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    /* The intro sequence plays once per session — see the reveal block in
+       main.js. Read before the first paint so a return visit never flashes
+       the un-animated state. */
+    try {
+      if (sessionStorage.getItem('cb.seenIntro')) {
+        document.documentElement.classList.add('no-reveal-animation');
+      }
+    } catch (e) { }
+  </script>
+</head>
+<body>
+
+<!-- reusable brand mark -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="cb-mark" viewBox="0 0 48 48">
+    <g fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round">
+      <path d="M24 3 34 24 24 45 14 24Z"/>
+      <path d="M3 24 24 14 45 24 24 34Z"/>
+      <circle cx="24" cy="24" r="5.5"/>
+      <circle cx="24" cy="24" r="1.6" fill="currentColor" stroke="none"/>
+      <path d="M24 3v42M3 24h42" stroke-width=".4" opacity=".5"/>
+    </g>
+  </symbol>
+</svg>
+
+<!-- ===================== header ===================== -->
+<header class="header">
+  <div class="shell">
+    <div class="header__top">
+      <a class="header__about" href="about.html">About C&amp;B</a>
+      <a class="header__mark" href="index.html" aria-label="Chain &amp; Bracelet — home">
+        <svg><use href="#cb-mark"></use></svg>
+      </a>
+    </div>
+
+    <div class="header__bar">
+      <button class="burger" data-burger aria-expanded="false" aria-controls="mobileNav" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav nav--left">
+        <a href="shop.html?c=chains" data-nav="chains">Chains</a>
+        <a href="shop.html?c=bracelets" data-nav="bracelets">Bracelets</a>
+      </nav>
+      <a class="wordmark" href="index.html">Chain &amp; Bracelet</a>
+      <nav class="nav nav--right">
+        <a href="shop.html?c=rings" data-nav="rings">Rings</a>
+        <a href="shop.html?c=earrings" data-nav="earrings">Earrings</a>
+      </nav>
+      <span class="spacer" aria-hidden="true"></span>
+    </div>
+
+      <div class="header__tools">
+        <button class="icon-btn" data-open="search" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/>
+          </svg>
+        </button>
+        <button class="icon-btn" data-open="account" aria-label="Account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="12" cy="8.5" r="3.5"/>
+            <path d="M4.5 20c1.6-4 4.4-6 7.5-6s5.9 2 7.5 6"/>
+          </svg>
+        </button>
+        <a class="icon-btn" href="saved.html" aria-label="Wishlist">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M12 20s-7.5-4.7-7.5-9.6A4.4 4.4 0 0 1 12 7.5a4.4 4.4 0 0 1 7.5 2.9C19.5 15.3 12 20 12 20Z"/>
+          </svg>
+          <span class="icon-btn__count" data-wish-badge>0</span>
+        </a>
+        <button class="icon-btn" data-open="cart" aria-label="Shopping bag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>
+          </svg>
+          <span class="icon-btn__count" data-cart-badge>0</span>
+        </button>
+      </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="shop.html">Shop All</a>
+    <a href="shop.html?c=chains">Chains</a>
+    <a href="shop.html?c=bracelets">Bracelets</a>
+    <a href="shop.html?c=rings">Rings</a>
+    <a href="shop.html?c=earrings">Earrings</a>
+    <a href="about.html">About C&amp;B</a>
+  </nav>
+</header>
+
+<main class="pdp">
+  <div class="shell">
+
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="shop.html">Shop</a>
+      <span aria-hidden="true">/</span>
+      <a href="shop.html" data-crumb-cat>Chains</a>
+      <span aria-hidden="true">/</span>
+      <span data-crumb-name aria-current="page">&nbsp;</span>
+    </nav>
+
+    <div class="pdp__top">
+
+      <!-- gallery -->
+      <div class="pdp__gallery">
+        <div class="thumbs" data-thumbs role="tablist" aria-label="Product images"></div>
+        <figure class="stage">
+          <img data-stage src="" alt="">
+        </figure>
+      </div>
+
+      <!-- buy column -->
+      <div class="pdp__info">
+        <div class="rating">
+          <span class="rating__stars" data-stars aria-hidden="true"></span>
+          <span class="rating__text" data-reviews></span>
+        </div>
+
+        <h1 class="display" data-name>&nbsp;</h1>
+        <p class="pdp__metal" data-metal></p>
+        <p class="pdp__price" data-price></p>
+
+        <p class="body-copy" data-blurb></p>
+
+        <div class="pdp__field">
+          <div class="pdp__field-head">
+            <span class="pdp__label" data-size-label>Size</span>
+            <button class="pdp__guide" type="button" data-guide>Size guide</button>
+          </div>
+          <div class="sizes" data-sizes role="group" aria-label="Choose a size"></div>
+        </div>
+
+        <div class="pdp__actions">
+          <button class="btn btn--solid" data-buy>Add to Bag</button>
+          <button class="pdp__wish" data-wish aria-pressed="false" aria-label="Save to wishlist">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M12 20s-7.5-4.7-7.5-9.6A4.4 4.4 0 0 1 12 7.5a4.4 4.4 0 0 1 7.5 2.9C19.5 15.3 12 20 12 20Z"/>
+            </svg>
+          </button>
+        </div>
+
+        <ul class="pdp__reassure">
+          <li>Made to order in eight to ten working days</li>
+          <li>Hand engraving included, no extra charge</li>
+          <li>Insured delivery and thirty day returns</li>
+        </ul>
+
+        <div class="tabs" data-tabs>
+          <div class="tabs__bar" role="tablist">
+            <button class="tabs__btn is-on" data-tab="desc" role="tab" aria-selected="true">Description</button>
+            <button class="tabs__btn" data-tab="details" role="tab" aria-selected="false">Details</button>
+            <button class="tabs__btn" data-tab="care" role="tab" aria-selected="false">Care</button>
+          </div>
+          <div class="tabs__panel is-on" data-panel="desc" role="tabpanel">
+            <p data-desc></p>
+          </div>
+          <div class="tabs__panel" data-panel="details" role="tabpanel">
+            <ul class="spec" data-details></ul>
+          </div>
+          <div class="tabs__panel" data-panel="care" role="tabpanel">
+            <p>
+              Take it off before the gym, the sea and the shower. Wipe with the cloth in the box
+              after wearing. Bring it back to us once a year and we will clean, check the settings
+              and re-polish it at no charge.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- add to the order — the earrings and rings sell -->
+    <section class="addons" data-addons hidden>
+      <div class="addons__head">
+        <h2 class="display" data-addons-title>Add to Your Order</h2>
+        <p class="body-copy" data-addons-note></p>
+      </div>
+      <div class="addons__row" data-addons-row></div>
+    </section>
+
+    <!-- related -->
+    <section class="related">
+      <h2 class="display">You May Also Like</h2>
+      <div class="grid grid--4" data-related></div>
+    </section>
+
+  </div>
+</main>
+
+<!-- ===================== footer ===================== -->
+<footer class="footer reveal reveal--seq">
+  <div class="shell footer__grid">
+    <div>
+      <h3>Follow Us</h3>
+      <div class="footer__social">
+        <a href="#">Instagram</a>
+        <a href="#">Pinterest</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+
+    <div class="footer__brand">
+      <svg aria-hidden="true"><use href="#cb-mark"></use></svg>
+      <div class="wordmark">Chain &amp; Bracelet</div>
+      <small>&copy; 2026 Chain &amp; Bracelet. All rights reserved.</small>
+    </div>
+
+    <div class="subscribe">
+      <h3>Subscribe to Our Newsletter</h3>
+      <form data-subscribe>
+        <input type="email" name="email" placeholder="Enter your email" required aria-label="Email address">
+        <button type="submit">Send</button>
+      </form>
+      <p class="note">New arrivals and private previews. No more than twice a month.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== overlays ===================== -->
+<div class="scrim" data-scrim></div>
+
+<aside class="drawer" data-drawer="cart" aria-hidden="true" aria-label="Shopping bag">
+  <div class="drawer__head">
+    <h2>Shopping Bag</h2>
+    <button class="drawer__close" data-close aria-label="Close bag">&times;</button>
+  </div>
+  <div class="drawer__body" data-cart-body>
+    <p class="drawer__empty">Your bag is empty.</p>
+  </div>
+  <div class="drawer__foot">
+    <div class="drawer__total"><span>Subtotal</span><strong data-cart-total>$0</strong></div>
+    <a class="btn btn--ink" href="saved.html?tab=bag">View Bag &amp; Checkout</a>
+  </div>
+</aside>
+
+<aside class="drawer" data-drawer="account" aria-hidden="true" aria-label="Account">
+  <div class="drawer__head">
+    <h2>Account</h2>
+    <button class="drawer__close" data-close aria-label="Close account">&times;</button>
+  </div>
+  <div class="drawer__body account__body">
+    <div class="account__tabs" role="tablist">
+      <button type="button" class="account__tab is-on" data-account-tab="signin" role="tab" aria-selected="true">Sign In</button>
+      <button type="button" class="account__tab" data-account-tab="create" role="tab" aria-selected="false">Create Account</button>
+    </div>
+
+    <form class="account__form" data-account-form="signin">
+      <div class="form-group">
+        <label for="signinEmail">Email Address</label>
+        <input type="email" id="signinEmail" name="email" placeholder="you@example.com" required>
+      </div>
+      <div class="form-group">
+        <label for="signinPassword">Password</label>
+        <input type="password" id="signinPassword" name="password" placeholder="••••••••" required>
+      </div>
+      <button class="btn btn--ink account__submit" type="submit">Sign In</button>
+    </form>
+
+    <form class="account__form" data-account-form="create" hidden>
+      <div class="form-group">
+        <label for="createName">Full Name</label>
+        <input type="text" id="createName" name="name" placeholder="Your name" required>
+      </div>
+      <div class="form-group">
+        <label for="createEmail">Email Address</label>
+        <input type="email" id="createEmail" name="email" placeholder="you@example.com" required>
+      </div>
+      <div class="form-group">
+        <label for="createPassword">Password</label>
+        <input type="password" id="createPassword" name="password" placeholder="Create a password" required>
+      </div>
+      <button class="btn btn--ink account__submit" type="submit">Create Account</button>
+    </form>
+
+    <div class="account__divider"><span>or</span></div>
+
+    <button type="button" class="account__guest" data-guest-continue>Continue as Guest</button>
+
+    <p class="account__note">This is a prototype — accounts aren’t connected to anything yet. Signing in, creating an account, or continuing as guest all just close this panel.</p>
+  </div>
+</aside>
+
+<aside class="drawer" data-drawer="sizeguide" aria-hidden="true" aria-label="Size Guide">
+  <div class="drawer__head">
+    <h2>Size Guide</h2>
+    <button class="drawer__close" data-close aria-label="Close size guide">&times;</button>
+  </div>
+  <div class="drawer__body sizeguide__body">
+
+    <div class="sizeguide__panel" data-sizeguide-panel="rings" hidden>
+      <p class="body-copy">Not sure of your ring size? Measure a ring that already fits the intended finger — inside diameter, edge to edge — or ask us for a free printable sizer.</p>
+      <table class="sizeguide__table">
+        <thead>
+          <tr><th>US Size</th><th>Diameter</th><th>Circumference</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>5</td><td>15.7 mm</td><td>49.3 mm</td></tr>
+          <tr><td>6</td><td>16.5 mm</td><td>51.9 mm</td></tr>
+          <tr><td>7</td><td>17.3 mm</td><td>54.4 mm</td></tr>
+          <tr><td>8</td><td>18.1 mm</td><td>57.0 mm</td></tr>
+        </tbody>
+      </table>
+      <p class="sizeguide__note">Between sizes? Order the larger — resizing down within one size is free for the first year.</p>
+    </div>
+
+    <div class="sizeguide__panel" data-sizeguide-panel="bracelets" hidden>
+      <p class="body-copy">Measure a bracelet you already own and like the fit of, laid flat end to end — or wrap a strip of paper snug around the wrist and measure that.</p>
+      <ul class="sizeguide__lengths">
+        <li><span>6.5 in</span>Snug — sits close to the wrist</li>
+        <li><span>7 in</span>Standard — the most common fit</li>
+        <li><span>7.5 in</span>Loose — worn low on the wrist</li>
+      </ul>
+      <p class="sizeguide__note">Between sizes? Most people size up for a bracelet they'll layer with others.</p>
+    </div>
+
+    <div class="sizeguide__panel" data-sizeguide-panel="chains" hidden>
+      <p class="body-copy">Chain length is measured end to end around the neck. If you have a chain you like the fall of, lay it flat and measure it.</p>
+      <ul class="sizeguide__lengths">
+        <li><span>16 in</span>Choker — sits at the base of the throat</li>
+        <li><span>18 in</span>Collarbone — our most popular length</li>
+        <li><span>20 in</span>Just below the collarbone</li>
+      </ul>
+      <p class="sizeguide__note">Layering two or three? Space each length about two inches apart so they don't tangle.</p>
+    </div>
+
+    <div class="sizeguide__panel" data-sizeguide-panel="earrings" hidden>
+      <p class="body-copy">Studs are one size and sit close to the earlobe. The dropdown on this piece is for metal colour, not fit.</p>
+      <p class="sizeguide__note">Unsure which metal suits you — write to us and we're glad to help.</p>
+    </div>
+
+  </div>
+</aside>
+
+<div class="search" data-search aria-hidden="true" role="dialog" aria-modal="true" aria-label="Search">
+  <button class="search__close" type="button" data-close aria-label="Close search">
+    <span>Close</span>
+    <span class="search__close-x" aria-hidden="true">&times;</span>
+  </button>
+
+  <div class="search__panel">
+
+    <form class="search__form" data-search-form role="search">
+        <svg class="search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/>
+        </svg>
+        <input type="search" name="q" data-search-input autocomplete="off"
+               placeholder="Search chains, bracelets, rings&#8230;" aria-label="Search the collection">
+        <button class="search__clear" type="button" data-search-clear hidden aria-label="Clear search">&times;</button>
+      </form>
+
+    <div class="search__body">
+      <div data-search-suggest>
+        <div data-recent hidden>
+          <p class="search__label">
+            <span>Recent</span>
+            <button type="button" class="search__wipe" data-recent-clear>Clear</button>
+          </p>
+          <div class="search__chips" data-recent-list></div>
+        </div>
+
+        <p class="search__label"><span>Popular searches</span></p>
+        <div class="search__chips">
+          <button type="button" class="search__chip" data-term="tennis bracelet">Tennis bracelet</button>
+          <button type="button" class="search__chip" data-term="belcher chain">Belcher chain</button>
+          <button type="button" class="search__chip" data-term="eternity">Eternity band</button>
+          <button type="button" class="search__chip" data-term="yellow gold">Yellow gold</button>
+          <button type="button" class="search__chip" data-term="studs">Studs</button>
+        </div>
+
+        <p class="search__label"><span>Browse</span></p>
+        <div class="search__browse">
+          <a href="shop.html?c=chains">
+            <span class="search__browse-img">
+              <img src="assets/img/products/necklace-chain.png" alt="" loading="lazy">
+            </span>
+            <span class="search__browse-name">Chains</span>
+          </a>
+          <a href="shop.html?c=bracelets">
+            <span class="search__browse-img">
+              <img src="assets/img/products/bracelet-tennis.png" alt="" loading="lazy">
+            </span>
+            <span class="search__browse-name">Bracelets</span>
+          </a>
+          <a href="shop.html?c=rings">
+            <span class="search__browse-img">
+              <img src="assets/img/products/ring-eternity.png" alt="" loading="lazy">
+            </span>
+            <span class="search__browse-name">Rings</span>
+          </a>
+          <a href="shop.html?c=earrings">
+            <span class="search__browse-img">
+              <img src="assets/img/products/earring-category.png" alt="" loading="lazy">
+            </span>
+            <span class="search__browse-name">Earrings</span>
+          </a>
+        </div>
+
+        <p class="search__label"><span>Most searched pieces</span></p>
+        <div class="search__rail" data-search-rail></div>
+      </div>
+
+      <div data-search-results hidden>
+        <p class="search__label">
+          <span data-search-count aria-live="polite"></span>
+        </p>
+        <div class="search__cats" data-search-cats hidden></div>
+        <div class="search__list" data-search-list></div>
+        <a class="search__all" data-search-all href="shop.html">View all results<span aria-hidden="true">&#8594;</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" data-toast role="status" aria-live="polite"></div>
+
+<script src="assets/js/catalog.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/pdp.js"></script>
+</body>
+</html>

@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chain &amp; Bracelet — Fine Jewellery</title>
+  <meta name="description"
+    content="Chain &amp; Bracelet — chains, bracelets and diamond fine jewellery, made to be worn every day.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    /* The intro sequence plays once per session — see the reveal block in
+       main.js. Read before the first paint so a return visit never flashes
+       the un-animated state. */
+    try {
+      if (sessionStorage.getItem('cb.seenIntro')) {
+        document.documentElement.classList.add('no-reveal-animation');
+      }
+    } catch (e) { }
+  </script>
+</head>
+
+<body class="home">
+
+  <!-- reusable brand mark -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="cb-mark" viewBox="0 0 48 48">
+      <g fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round">
+        <path d="M24 3 34 24 24 45 14 24Z" />
+        <path d="M3 24 24 14 45 24 24 34Z" />
+        <circle cx="24" cy="24" r="5.5" />
+        <circle cx="24" cy="24" r="1.6" fill="currentColor" stroke="none" />
+        <path d="M24 3v42M3 24h42" stroke-width=".4" opacity=".5" />
+      </g>
+    </symbol>
+  </svg>
+
+  <!-- ===================== header ===================== -->
+  <header class="header">
+    <div class="shell">
+      <div class="header__top">
+        <a class="header__about" href="about.html">About C&amp;B</a>
+        <a class="header__mark" href="index.html" aria-label="Chain &amp; Bracelet — home">
+          <svg>
+            <use href="#cb-mark"></use>
+          </svg>
+        </a>
+      </div>
+
+      <div class="header__bar">
+        <button class="burger" data-burger aria-expanded="false" aria-controls="mobileNav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="nav nav--left">
+          <a href="shop.html?c=chains">Chains</a>
+          <a href="shop.html?c=bracelets">Bracelets</a>
+        </nav>
+        <a class="wordmark" href="index.html">Chain &amp; Bracelet</a>
+        <nav class="nav nav--right">
+          <a href="shop.html?c=rings">Rings</a>
+          <a href="shop.html?c=earrings">Earrings</a>
+        </nav>
+        <span class="spacer" aria-hidden="true"></span>
+      </div>
+
+      <div class="header__tools">
+        <button class="icon-btn" data-open="search" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="11" cy="11" r="7" />
+            <path d="m16.5 16.5 4 4" />
+          </svg>
+        </button>
+        <button class="icon-btn" data-open="account" aria-label="Account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="12" cy="8.5" r="3.5"/>
+            <path d="M4.5 20c1.6-4 4.4-6 7.5-6s5.9 2 7.5 6"/>
+          </svg>
+        </button>
+        <a class="icon-btn" href="saved.html" aria-label="Wishlist">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M12 20s-7.5-4.7-7.5-9.6A4.4 4.4 0 0 1 12 7.5a4.4 4.4 0 0 1 7.5 2.9C19.5 15.3 12 20 12 20Z" />
+          </svg>
+          <span class="icon-btn__count" data-wish-badge>0</span>
+        </a>
+        <button class="icon-btn" data-open="cart" aria-label="Shopping bag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M5 8h14l-1 12H6L5 8Z" />
+            <path d="M9 8V6a3 3 0 0 1 6 0v2" />
+          </svg>
+          <span class="icon-btn__count" data-cart-badge>0</span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="shop.html">Shop All</a>
+      <a href="shop.html?c=chains">Chains</a>
+      <a href="shop.html?c=bracelets">Bracelets</a>
+      <a href="shop.html?c=rings">Rings</a>
+      <a href="shop.html?c=earrings">Earrings</a>
+      <a href="about.html">About C&amp;B</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===================== hero ===================== -->
+    <section class="hero">
+      <div class="hero__media">
+          <video src="assets/img/editorial/hero.mp4" poster="assets/img/editorial/hero.jpg"
+            autoplay muted loop playsinline aria-label="Model wearing layered diamond necklaces"></video>
+        </div>
+      <div class="hero__panel">
+        <h1 class="display">Welcome to<br>Chain &amp; Bracelet</h1>
+        <p class="body-copy">
+          Chains that hold a life together and bracelets meant to be layered, not saved for later.
+          Every piece is set by hand in solid gold with responsibly sourced stones, then finished
+          in our studio the week you order it.
+        </p>
+        <a class="btn btn--ink" href="shop.html">Learn More</a>
+      </div>
+    </section>
+
+    <!-- ===================== signature ===================== -->
+    <div class="band" id="signature">
+      <h1 class="display">Signature Chains</h1>
+    </div>
+
+    <section class="trio reveal reveal--seq">
+      <figure class="trio__figure">
+        <img src="assets/img/editorial/signature.png" alt="Model wearing a graduated diamond tennis necklace"
+          width="1080" height="1440">
+      </figure>
+
+      <div class="tiles">
+        <a class="tile" href="shop.html?c=chains">
+          <img src="assets/img/products/necklace-chain.png" alt="Diamond line necklace in 18K gold" loading="lazy">
+          <span class="tile__label">Line Necklaces</span>
+        </a>
+        <a class="tile" href="shop.html?c=bracelets">
+          <img src="assets/img/products/bracelet-tennis.png" alt="Bezel-set diamond tennis bracelet" loading="lazy">
+          <span class="tile__label">Tennis Bracelets</span>
+        </a>
+        <a class="tile" href="shop.html?c=earrings">
+          <img src="assets/img/products/earring-category.png" alt="Pear-cut diamond stud earrings" loading="lazy">
+          <span class="tile__label">Studs</span>
+        </a>
+        <a class="tile" href="shop.html?c=rings">
+          <img src="assets/img/products/ring-eternity.png" alt="Half eternity diamond band" loading="lazy">
+          <span class="tile__label">Eternity Bands</span>
+        </a>
+      </div>
+
+      <div class="panel-brown">
+        <h2 class="display">Diamonds</h2>
+        <p class="body-copy">
+          Every stone we set is graded for cut before colour, because cut is what you actually see
+          across a room. Lab-grown and natural, each with its own certificate — you choose which
+          story you'd rather wear.
+        </p>
+        <a class="btn btn--light" href="shop.html">Discover</a>
+      </div>
+    </section>
+
+    <!-- ===================== editorial split ===================== -->
+    <section class="split reveal reveal--seq" id="about">
+      <div class="split__copy">
+        <h2 class="display">Autumn<br>in the City</h2>
+        <p class="body-copy">
+          The layering edit: a fine belcher chain, a bezel bracelet worn low on the wrist, and
+          nothing else. Built for the commute, the late dinner and the walk home — pieces you
+          stop noticing you have on.
+        </p>
+        <a class="btn btn--ink" href="shop.html?c=chains">Learn More</a>
+      </div>
+      <div class="split__media">
+        <img src="assets/img/editorial/autumn.png" alt="Model wearing stacked rings and a diamond bracelet"
+          width="1080" height="1440">
+      </div>
+    </section>
+
+    <!-- ===================== new in store ===================== -->
+    <div class="new-in reveal reveal--seq">
+      <div class="band" id="new">
+        <h1 class="display">New in Store</h1>
+      </div>
+
+      <section class="carousel">
+        <div class="shell">
+          <div class="carousel__viewport">
+            <div class="carousel__track" data-track>
+
+              <article class="card" data-product data-id="bezel-tennis" data-name="Bezel Tennis Bracelet"
+                data-price="2450" data-img="assets/img/products/bracelet-tennis.png">
+                <div class="card__media">
+                  <button class="card__wish" data-wish aria-label="Add Bezel Tennis Bracelet to wishlist">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                      <path
+                        d="M12 20s-7.5-4.7-7.5-9.6A4.4 4.4 0 0 1 12 7.5a4.4 4.4 0 0 1 7.5 2.9C19.5 15.3 12 20 12 20Z" />
+                    </svg>
+                  </button>
+                  <img src="assets/img/products/bracelet-tennis.png" alt="Bezel-set diamond tennis bracelet"
+                    loading="lazy">
+                  <div class="card__quick">
+                    <h3>Bezel Tennis<br>Bracelet</h3>
+                      <!-- <select data-variant aria-label="Length">
+                        <option>6.5 in</option>
+                        <option selected>7 in</option>
+                        <option>7.5 in</option>
+                      </select> -->
+                    <span class="price">$2,450</span>
+                    <a class="btn btn--light" data-details href="product.html?id=bezel-tennis">View Details</a>
+                  </div>
+                </div>
+                <div class="card__foot">
+                  <h3><a href="product.html?id=bezel-tennis">Bezel Tennis Bracelet</a></h3>
+                  <span class="price">$2,450</span>
+                </div>
+              </article>
+
+              <article class="card" data-product data-id="milano-line" data-name="Milano Line Necklace"
+                data-price="3500" data-img="assets/img/products/necklace-chain.png">
+                <div class="card__media">
+                  <button class="card__wish" data-wish aria-label="Add Milano Line Necklace to wishlist">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                      <path
+                        d="M12 20s-7.5-4.7-7.5-9.6A4.4 4.4 0 0 1 12 7.5a4.4 4.4 0 0 1 7.5 2.9C19.5 15.3 12 20 12 20Z" />
+                    </svg>
+                  </button>
+                  <img src="assets/img/products/necklace-chain.png" alt="Diamond line necklace in 18K gold"
+                    loading="lazy">
+                  <div class="card__quick">
+                    <h3>Milano Line<br>Necklace</h3>
+                    <!-- <select data-variant aria-label="Length">
+                      <option>16 in</option>
+                      <option selected>18 in</option>
+                      <option>20 in</option>
+                    </select> -->
+                    <span class="price">$3,500</span>
+                    <a class="btn btn--light" data-details href="product.html?id=milano-line">View Details</a>
+                  </div>
+                </div>
+                <div class="card__foot">
+                  <h3><a href="product.html?id=milano-line">Milano Line Necklace</a></h3>
+                  <span class="price">$3,500</span>
+                </div>
+              </article>
+
+              <article class="card" data-product data-id="solitaire-18k" data-name="Necklace with Solitaire Pendant"
+                data-price="4180" data-img="assets/img/products/necklace1.png">
+                <div class="card__media">
+                  <button class="card__wish" data-wish aria-label="Add Necklace with Solitaire Pendant to wishlist">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                      <path
+                        d="M12 20s-7.5-4.7-7.5-9.6A4.4 4.4 0 0 1 12 7.5a4.4 4.4 0 0 1 7.5 2.9C19.5 15.3 12 20 12 20Z" />
+                    </svg>
+                  </button>
+                  <img src="assets/img/products/necklace1.png"
+                    alt="Graduated diamond necklace with solitaire pendant" loading="lazy">
+                  <div class="card__quick">
+                    <h3>Necklace with<br>Solitaire Pendant</h3>
+                    <span class="price">$4,180</span>
+                    <a class="btn btn--light" data-details href="product.html?id=solitaire-18k">View Details</a>
+                  </div>
+                </div>
+                <div class="card__foot">
+                  <h3><a href="product.html?id=solitaire-18k">Necklace with Solitaire Pendant</a></h3>
+                  <span class="price">$4,180</span>
+                </div>
+              </article>
+
+              <article class="card" data-product data-id="pear-studs" data-name="Pear Drop Studs" data-price="1240"
+                data-img="assets/img/products/necklace-1.png">
+                <div class="card__media">
+                  <button class="card__wish" data-wish aria-label="Add Pear Drop Studs to wishlist">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                      <path
+                        d="M12 20s-7.5-4.7-7.5-9.6A4.4 4.4 0 0 1 12 7.5a4.4 4.4 0 0 1 7.5 2.9C19.5 15.3 12 20 12 20Z" />
+                    </svg>
+                  </button>
+                  <img src="assets/img/products/necklace-1.png" alt="Pear-cut diamond stud earrings" loading="lazy">
+                  <div class="card__quick">
+                    <h3>Pear Drop<br>Studs</h3>
+                    <!-- <select data-variant aria-label="Metal">
+                      <option selected>Yellow Gold</option>
+                      <option>White Gold</option>
+                    </select> -->
+                    <span class="price">$1,240</span>
+                    <a class="btn btn--light" data-details href="product.html?id=pear-studs">View Details</a>
+                  </div>
+                </div>
+                <div class="card__foot">
+                  <h3><a href="product.html?id=pear-studs">Pear Drop Studs</a></h3>
+                  <span class="price">$1,240</span>
+                </div>
+              </article>
+
+              <article class="card" data-product data-id="belcher-fine" data-name="Fine Belcher Chain"
+                data-price="1120" data-img="assets/img/products/BISW0972V03_RAA18DIG4XXXXXXXX_ABCD00-PICS-00000-1024-93844.png">
+                <div class="card__media">
+                  <button class="card__wish" data-wish aria-label="Add Fine Belcher Chain to wishlist">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                      <path
+                        d="M12 20s-7.5-4.7-7.5-9.6A4.4 4.4 0 0 1 12 7.5a4.4 4.4 0 0 1 7.5 2.9C19.5 15.3 12 20 12 20Z" />
+                    </svg>
+                  </button>
+                  <img src="assets/img/products/BISW0972V03_RAA18DIG4XXXXXXXX_ABCD00-PICS-00000-1024-93844.png" alt="Fine belcher chain in 14K yellow gold"
+                    loading="lazy">
+                  <div class="card__quick">
+                    <h3>Fine Belcher<br>Chain</h3>
+                    <span class="price">$1,120</span>
+                    <a class="btn btn--light" data-details href="product.html?id=belcher-fine">View Details</a>
+                  </div>
+                </div>
+                <div class="card__foot">
+                  <h3><a href="product.html?id=belcher-fine">Fine Belcher Chain</a></h3>
+                  <span class="price">$1,120</span>
+                </div>
+              </article>
+
+              <article class="card" data-product data-id="bead-stack" data-name="Layered Bead Stack"
+                data-price="1340" data-img="assets/img/products/Multi-Shaped_Diamond_Necklace_with_Pear_Center.png">
+                <div class="card__media">
+                  <button class="card__wish" data-wish aria-label="Add Layered Bead Stack to wishlist">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                      <path
+                        d="M12 20s-7.5-4.7-7.5-9.6A4.4 4.4 0 0 1 12 7.5a4.4 4.4 0 0 1 7.5 2.9C19.5 15.3 12 20 12 20Z" />
+                    </svg>
+                  </button>
+                  <img src="assets/img/products/Multi-Shaped_Diamond_Necklace_with_Pear_Center.png" alt="Layered bead stack bracelet set"
+                    loading="lazy">
+                  <div class="card__quick">
+                    <h3>Layered Bead<br>Stack</h3>
+                    <span class="price">$1,340</span>
+                    <a class="btn btn--light" data-details href="product.html?id=bead-stack">View Details</a>
+                  </div>
+                </div>
+                <div class="card__foot">
+                  <h3><a href="product.html?id=bead-stack">Layered Bead Stack</a></h3>
+                  <span class="price">$1,340</span>
+                </div>
+              </article>
+
+              <article class="card" data-product data-id="graduated-tennis" data-name="Graduated Tennis Necklace"
+                data-price="6400" data-img="assets/img/products/Bratara-tennis-din-aur-roz-cu-diamante-maro-de-1.9ct_243517_ROSE_1.webp">
+                <div class="card__media">
+                  <button class="card__wish" data-wish aria-label="Add Graduated Tennis Necklace to wishlist">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                      <path
+                        d="M12 20s-7.5-4.7-7.5-9.6A4.4 4.4 0 0 1 12 7.5a4.4 4.4 0 0 1 7.5 2.9C19.5 15.3 12 20 12 20Z" />
+                    </svg>
+                  </button>
+                  <img src="assets/img/products/Bratara-tennis-din-aur-roz-cu-diamante-maro-de-1.9ct_243517_ROSE_1.webp" alt="Graduated diamond tennis necklace"
+                    loading="lazy">
+                  <div class="card__quick">
+                    <h3>Graduated Tennis<br>Necklace</h3>
+                    <span class="price">$6,400</span>
+                    <a class="btn btn--light" data-details href="product.html?id=graduated-tennis">View Details</a>
+                  </div>
+                </div>
+                <div class="card__foot">
+                  <h3><a href="product.html?id=graduated-tennis">Graduated Tennis Necklace</a></h3>
+                  <span class="price">$6,400</span>
+                </div>
+              </article>
+
+              <article class="card" data-product data-id="bead-duo" data-name="Bead Duo Bracelet" data-price="980"
+                data-img="assets/img/products/necklace-2 copy.png">
+                <div class="card__media">
+                  <button class="card__wish" data-wish aria-label="Add Bead Duo Bracelet to wishlist">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                      <path
+                        d="M12 20s-7.5-4.7-7.5-9.6A4.4 4.4 0 0 1 12 7.5a4.4 4.4 0 0 1 7.5 2.9C19.5 15.3 12 20 12 20Z" />
+                    </svg>
+                  </button>
+                  <img src="assets/img/products/necklace-2 copy.png" alt="Two-tone gold bead duo bracelet"
+                    loading="lazy">
+                  <div class="card__quick">
+                    <h3>Bead Duo<br>Bracelet</h3>
+                    <span class="price">$980</span>
+                    <a class="btn btn--light" data-details href="product.html?id=bead-duo">View Details</a>
+                  </div>
+                </div>
+                <div class="card__foot">
+                  <h3><a href="product.html?id=bead-duo">Bead Duo Bracelet</a></h3>
+                  <span class="price">$980</span>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+          <div class="carousel__nav">
+            <button class="arrow" data-prev>
+              <svg viewBox="0 0 60 8" fill="none" stroke="currentColor" stroke-width="1">
+                <path d="M59 4H1m0 0 5-3M1 4l5 3" />
+              </svg>
+              <span>Prev</span>
+            </button>
+            <button class="arrow" data-next>
+              <span>Next</span>
+              <svg viewBox="0 0 60 8" fill="none" stroke="currentColor" stroke-width="1">
+                <path d="M1 4h58m0 0-5-3m5 3-5 3" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /.new-in -->
+
+    <!-- ===================== gifting ===================== -->
+    <section class="gifts reveal reveal--seq" id="gifting">
+      <a class="gift" href="shop.html?c=rings">
+        <img src="assets/img/editorial/the-beautiful.png" alt="Model wearing a cushion-cut diamond ring" loading="lazy">
+        <span class="gift__copy">
+          <span class="gift__title">For The<br>Beautiful</span>
+          <span class="gift__cta">Shop Rings</span>
+        </span>
+      </a>
+      <!-- <a class="gift" href="shop.html?c=bracelets">
+        <img src="assets/img/editorial/for-him.webp" alt="Stacked diamond bracelets worn on the wrist" loading="lazy">
+        <span class="gift__copy">
+          <span class="gift__title">For The<br>Dazzling</span>
+          <span class="gift__cta">Shop Bracelets</span>
+        </span>
+      </a> -->
+      <div class="panel-cream">
+        <h2 class="display">Holiday Gifts</h2>
+        <p class="body-copy">
+          Wrapped in our signature box with a hand-written card, shipped insured and gift-ready.
+          Order by 18 December for delivery before the holidays — engraving included, no extra charge.
+        </p>
+        <a class="btn btn--ink" href="shop.html">Discover More</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== footer ===================== -->
+  <footer class="footer reveal reveal--seq">
+    <div class="shell footer__grid">
+      <div>
+        <h3>Follow Us</h3>
+        <div class="footer__social">
+          <a href="#">Instagram</a>
+          <a href="#">Pinterest</a>
+          <a href="#">TikTok</a>
+        </div>
+      </div>
+
+      <div class="footer__brand">
+        <svg aria-hidden="true">
+          <use href="#cb-mark"></use>
+        </svg>
+        <div class="wordmark">Chain &amp; Bracelet</div>
+        <small>&copy; 2026 Chain &amp; Bracelet. All rights reserved.</small>
+      </div>
+
+      <div class="subscribe">
+        <h3>Subscribe to Our Newsletter</h3>
+        <form data-subscribe>
+          <input type="email" name="email" placeholder="Enter your email" required aria-label="Email address">
+          <button type="submit">Send</button>
+        </form>
+        <p class="note">New arrivals and private previews. No more than twice a month.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== overlays ===================== -->
+  <div class="scrim" data-scrim></div>
+
+  <aside class="drawer" data-drawer="cart" aria-hidden="true" aria-label="Shopping bag">
+    <div class="drawer__head">
+      <h2>Shopping Bag</h2>
+      <button class="drawer__close" data-close aria-label="Close bag">&times;</button>
+    </div>
+    <div class="drawer__body" data-cart-body>
+      <p class="drawer__empty">Your bag is empty.</p>
+    </div>
+    <div class="drawer__foot">
+      <div class="drawer__total"><span>Subtotal</span><strong data-cart-total>$0</strong></div>
+      <a class="btn btn--ink" href="saved.html?tab=bag">View Bag &amp; Checkout</a>
+    </div>
+  </aside>
+
+  <aside class="drawer" data-drawer="account" aria-hidden="true" aria-label="Account">
+    <div class="drawer__head">
+      <h2>Account</h2>
+      <button class="drawer__close" data-close aria-label="Close account">&times;</button>
+    </div>
+    <div class="drawer__body account__body">
+      <div class="account__tabs" role="tablist">
+        <button type="button" class="account__tab is-on" data-account-tab="signin" role="tab" aria-selected="true">Sign In</button>
+        <button type="button" class="account__tab" data-account-tab="create" role="tab" aria-selected="false">Create Account</button>
+      </div>
+
+      <form class="account__form" data-account-form="signin">
+        <div class="form-group">
+          <label for="signinEmail">Email Address</label>
+          <input type="email" id="signinEmail" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="signinPassword">Password</label>
+          <input type="password" id="signinPassword" name="password" placeholder="••••••••" required>
+        </div>
+        <button class="btn btn--ink account__submit" type="submit">Sign In</button>
+      </form>
+
+      <form class="account__form" data-account-form="create" hidden>
+        <div class="form-group">
+          <label for="createName">Full Name</label>
+          <input type="text" id="createName" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="createEmail">Email Address</label>
+          <input type="email" id="createEmail" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="createPassword">Password</label>
+          <input type="password" id="createPassword" name="password" placeholder="Create a password" required>
+        </div>
+        <button class="btn btn--ink account__submit" type="submit">Create Account</button>
+      </form>
+
+      <div class="account__divider"><span>or</span></div>
+
+      <button type="button" class="account__guest" data-guest-continue>Continue as Guest</button>
+
+      <p class="account__note">This is a prototype — accounts aren’t connected to anything yet. Signing in, creating an account, or continuing as guest all just close this panel.</p>
+    </div>
+  </aside>
+
+  <div class="search" data-search aria-hidden="true" role="dialog" aria-modal="true" aria-label="Search">
+    <button class="search__close" type="button" data-close aria-label="Close search">
+      <span>Close</span>
+      <span class="search__close-x" aria-hidden="true">&times;</span>
+    </button>
+
+    <div class="search__panel">
+
+      <form class="search__form" data-search-form role="search">
+        <svg class="search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+          aria-hidden="true">
+          <circle cx="11" cy="11" r="7" />
+          <path d="m16.5 16.5 4 4" />
+        </svg>
+        <input type="search" name="q" data-search-input autocomplete="off"
+          placeholder="Search chains, bracelets, rings&#8230;" aria-label="Search the collection">
+        <button class="search__clear" type="button" data-search-clear hidden aria-label="Clear search">&times;</button>
+      </form>
+
+      <div class="search__body">
+        <div data-search-suggest>
+          <div data-recent hidden>
+            <p class="search__label">
+              <span>Recent</span>
+              <button type="button" class="search__wipe" data-recent-clear>Clear</button>
+            </p>
+            <div class="search__chips" data-recent-list></div>
+          </div>
+
+          <p class="search__label"><span>Popular searches</span></p>
+          <div class="search__chips">
+            <button type="button" class="search__chip" data-term="tennis bracelet">Tennis bracelet</button>
+            <button type="button" class="search__chip" data-term="belcher chain">Belcher chain</button>
+            <button type="button" class="search__chip" data-term="eternity">Eternity band</button>
+            <button type="button" class="search__chip" data-term="yellow gold">Yellow gold</button>
+            <button type="button" class="search__chip" data-term="studs">Studs</button>
+          </div>
+
+          <p class="search__label"><span>Browse</span></p>
+          <div class="search__browse">
+            <a href="shop.html?c=chains">
+              <span class="search__browse-img">
+                <img src="assets/img/products/necklace-chain.png" alt="" loading="lazy">
+              </span>
+              <span class="search__browse-name">Chains</span>
+            </a>
+            <a href="shop.html?c=bracelets">
+              <span class="search__browse-img">
+                <img src="assets/img/products/bracelet-tennis.png" alt="" loading="lazy">
+              </span>
+              <span class="search__browse-name">Bracelets</span>
+            </a>
+            <a href="shop.html?c=rings">
+              <span class="search__browse-img">
+                <img src="assets/img/products/ring-eternity.png" alt="" loading="lazy">
+              </span>
+              <span class="search__browse-name">Rings</span>
+            </a>
+            <a href="shop.html?c=earrings">
+              <span class="search__browse-img">
+                <img src="assets/img/products/earring-category.png" alt="" loading="lazy">
+              </span>
+              <span class="search__browse-name">Earrings</span>
+            </a>
+          </div>
+
+          <p class="search__label"><span>Most searched pieces</span></p>
+          <div class="search__rail" data-search-rail></div>
+        </div>
+
+        <div data-search-results hidden>
+          <p class="search__label">
+            <span data-search-count aria-live="polite"></span>
+          </p>
+          <div class="search__cats" data-search-cats hidden></div>
+          <div class="search__list" data-search-list></div>
+          <a class="search__all" data-search-all href="shop.html">View all results<span
+              aria-hidden="true">&#8594;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" data-toast role="status" aria-live="polite"></div>
+
+  <script src="assets/js/catalog.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
